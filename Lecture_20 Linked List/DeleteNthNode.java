@@ -1,5 +1,6 @@
-// search key in Linked list --> Recursive 
-public class SearchInLL2 {
+// Find and Remove Nth node from end. using Iterative approach
+public class DeleteNthNode {
+
     // Creating node
     public static class Node {
         int data;
@@ -38,37 +39,46 @@ public class SearchInLL2 {
         System.out.println("null");
     }
 
-    // search for key (Recursive)
+    // Delete Nth node from end function
+    public void deleteNthFromEnd(int n) {
+        // calulate size
+        int sz = 0;
+        Node temp = head;
+        while (temp != null) {
+            temp = temp.next;
+            sz++;
+        }
 
-    public int helper(Node head, int key) { // TC = O(n) and SC = O(n)
-        // base case
-        if (head == null) {
-            return -1;
+        if (n == sz) { // last thi "n" == head(sz)
+            // to remove head
+            head = head.next; // removeFirst
+            return;
         }
-        if (head.data == key) {
-            return 0;
-        }
-        int idx = helper(head.next, key);
-        if (idx == -1) {
-            return -1;
-        }
-        return idx + 1;
-    }
 
-    public int Search(int key) { // O(n)
-        return helper(head, key);
+        // sz-n
+        int i = 1;
+        int iToFind = sz-n;
+        Node prev = head;
+
+        while(i < iToFind){
+            prev = prev.next;
+            i++;
+        }
+
+        prev.next = prev.next.next;
+        return;
     }
 
     public static void main(String[] args) {
-        SearchInLL ll = new SearchInLL();
+        DeleteNthNode ll = new DeleteNthNode();
         ll.addLast(1);
         ll.addLast(2);
         ll.addLast(3);
         ll.addLast(4);
+        ll.addLast(5);
+
         ll.print();
-
-        System.out.println(ll.Search(3));
-        System.out.println(ll.Search(10));
-
+        ll.deleteNthFromEnd(3);
+        ll.print();
     }
 }

@@ -1,5 +1,7 @@
-// search key in Linked list --> Recursive 
-public class SearchInLL2 {
+
+// Check if a Linked List is Palindrome or not
+
+public class Palindrome {
     // Creating node
     public static class Node {
         int data;
@@ -38,37 +40,26 @@ public class SearchInLL2 {
         System.out.println("null");
     }
 
-    // search for key (Recursive)
+    // Find mid fnx
+    // Slow fast approach
+    public Node findMid(Node head) {
+        Node slow = head;
+        Node fast = head;
 
-    public int helper(Node head, int key) { // TC = O(n) and SC = O(n)
-        // base case
-        if (head == null) {
-            return -1;
+        while (fast != null && fast.next != null) {
+            slow = slow.next; // +1
+            fast = fast.next.next; // +2
         }
-        if (head.data == key) {
-            return 0;
-        }
-        int idx = helper(head.next, key);
-        if (idx == -1) {
-            return -1;
-        }
-        return idx + 1;
-    }
-
-    public int Search(int key) { // O(n)
-        return helper(head, key);
+        return slow; // slow is my middle
     }
 
     public static void main(String[] args) {
-        SearchInLL ll = new SearchInLL();
+        Palindrome ll = new Palindrome();
         ll.addLast(1);
         ll.addLast(2);
         ll.addLast(3);
         ll.addLast(4);
         ll.print();
-
-        System.out.println(ll.Search(3));
-        System.out.println(ll.Search(10));
 
     }
 }

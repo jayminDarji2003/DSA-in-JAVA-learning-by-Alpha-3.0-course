@@ -1,5 +1,5 @@
-// search key in Linked list --> Recursive 
-public class SearchInLL2 {
+public class ReverseLInkedList {
+
     // Creating node
     public static class Node {
         int data;
@@ -38,37 +38,30 @@ public class SearchInLL2 {
         System.out.println("null");
     }
 
-    // search for key (Recursive)
+    // Reverse function
+    public void reverse() { // O(n)
+        Node prev = null;
+        Node curr = tail = head;
+        Node next;
 
-    public int helper(Node head, int key) { // TC = O(n) and SC = O(n)
-        // base case
-        if (head == null) {
-            return -1;
+        while(curr != null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
         }
-        if (head.data == key) {
-            return 0;
-        }
-        int idx = helper(head.next, key);
-        if (idx == -1) {
-            return -1;
-        }
-        return idx + 1;
-    }
-
-    public int Search(int key) { // O(n)
-        return helper(head, key);
+        head = prev;
     }
 
     public static void main(String[] args) {
-        SearchInLL ll = new SearchInLL();
+        ReverseLInkedList ll = new ReverseLInkedList();
         ll.addLast(1);
         ll.addLast(2);
         ll.addLast(3);
         ll.addLast(4);
+
         ll.print();
-
-        System.out.println(ll.Search(3));
-        System.out.println(ll.Search(10));
-
+        ll.reverse();
+        ll.print();
     }
 }
