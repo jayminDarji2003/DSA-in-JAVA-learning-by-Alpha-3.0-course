@@ -42,6 +42,7 @@ public class Palindrome {
 
     // Find mid fnx
     // Slow fast approach
+    
     public Node findMid(Node head) {
         Node slow = head;
         Node fast = head;
