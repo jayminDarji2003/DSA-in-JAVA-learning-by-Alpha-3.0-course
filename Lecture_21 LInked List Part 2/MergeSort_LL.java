@@ -105,7 +105,7 @@ public class MergeSort_LL {
 
         // 5->4->3->2->1
         ll.print();
-        ll.head = ll.mergeSort(ll.head);
+        head = ll.mergeSort(head);
         ll.print();
     }
 }
