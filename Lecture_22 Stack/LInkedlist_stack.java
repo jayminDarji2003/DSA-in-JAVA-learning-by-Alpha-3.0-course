@@ -1,5 +1,3 @@
-import java.util.stream.IntStream;
-
 // Stack implementation using Linked List
 
 public class LInkedlist_stack {
