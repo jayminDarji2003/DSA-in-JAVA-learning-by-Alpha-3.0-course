@@ -1,5 +1,5 @@
 /*
-    Q.2 :- Reverse a string using Stack
+    Q.2 :- 1verse a string using Stack
  */
 
 import java.util.*;
