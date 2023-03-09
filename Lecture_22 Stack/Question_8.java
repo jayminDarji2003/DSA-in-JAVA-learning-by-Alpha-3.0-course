@@ -2,7 +2,6 @@
 Q.8 :- Maximum Rectangle Area in Histogram
 
 Note := Hard Question
-
 */
 
 import java.util.Stack;
@@ -11,8 +10,8 @@ public class Question_8 {
 
     public static void maxArea(int arr[]) {  // O(n)
         int maxArea = 0;
-        int nsr[] = new int[arr.length];
-        int nsl[] = new int[arr.length];
+        int nsr[] = new int[arr.length]; // nsr = next smaller right
+        int nsl[] = new int[arr.length]; // nsl = next smaller left
 
         // Next Smaller Right O(n)
         Stack<Integer> s = new Stack<>();
