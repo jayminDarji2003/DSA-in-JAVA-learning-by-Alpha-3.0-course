@@ -1,10 +1,8 @@
-import javax.tools.ForwardingFileObject;
-
 /*
     Circular queue is Implementation using Array
  */
 
-public class Circular_quq {
+public class Circular_que {
     static class Queue {
         static int arr[];
         static int size;
@@ -19,17 +17,17 @@ public class Circular_quq {
         }
 
         // isEmpty
-        public static boolean isEmpty() {
+        public boolean isEmpty() {
             return ((rear == -1) && (front == -1));
         }
 
         // isFull
-        public static boolean isFull() {
+        public boolean isFull() {
             return (rear + 1) % size == front;
         }
 
         // add
-        public static void add(int data) {  // O(1)
+        public void add(int data) {  // O(1)
             if (isFull()) {
                 System.out.println("Queue is full!!!");
                 return;
@@ -45,7 +43,7 @@ public class Circular_quq {
         }
 
         // remove
-        public static int remove() {  //O(1)
+        public int remove() {  //O(1)
             if (isEmpty()) {
                 System.out.println("Queue is empty!!");
                 return -1;
@@ -62,7 +60,7 @@ public class Circular_quq {
 
 
         // peek
-        public static int peek(){  //O(1)
+        public int peek(){  //O(1)
             if(isEmpty()){
                 System.out.println("Queue is empty!!!");
                 return -1;
