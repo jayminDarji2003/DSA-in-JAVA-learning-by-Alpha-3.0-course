@@ -2,7 +2,7 @@
 /*
     Q.5 :- Find next greater
 
-    This question have many forms
+    This question have many forms ()
         1. next greater right
         2. next greater left
         3. next smaller right
