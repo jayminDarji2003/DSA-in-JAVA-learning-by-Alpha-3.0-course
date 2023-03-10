@@ -25,7 +25,6 @@ public class Array_que {
                 System.out.println("queue is full!!!");
                 return;
             }
-
             rear = rear + 1;
             arr[rear] = data;
         }
@@ -36,7 +35,6 @@ public class Array_que {
                 System.out.println("Queue is empty!!!");
                 return -1;
             }
-
             int front = arr[0];
             for(int i=0; i<rear; i++){
                 arr[i] = arr[i+1];
@@ -51,19 +49,18 @@ public class Array_que {
                 System.out.println("Queue is empty!!");
                 return -1;
             }
-
             return arr[0];
         }
 
     }
 
     public static void main(String[] args) {
-        Queue q = new Queue(5);
+        Queue q = new Queue(5); // here 5 is size of array
         q.add(1);
         q.add(2);
         q.add(3);
 
-        while(!q.isEmpty()){ // queue khali nai ho jati tab tak
+        while(!q.isEmpty()){ // queue khali nai ho jata tab tak
             System.out.println(q.peek());
             q.remove();
         }

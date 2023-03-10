@@ -1,5 +1,12 @@
 /*
     Implement Queue using JCF(java collection fromwork)
+
+    Queue<Integer> q = new LinkedList<>();
+    Queue -->Interface --> we can't make object of interface
+        so, to implement Queue we use LinkedList class.
+        we have two class to implement Queue
+            1. LinkedList
+            2. ArrayDeque
  */
 import java.util.*;
 

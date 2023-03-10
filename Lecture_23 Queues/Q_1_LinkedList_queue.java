@@ -1,8 +1,9 @@
-/*  #Microsoft
+/*  
+    #Microsoft
     Q.1 :- Queue using Linked List.
- */
+*/
 
-public class Question_1 {
+public class Q_1_LinkedList_queue {
     static class Node {
         int data;
         Node next;
@@ -48,11 +49,9 @@ public class Question_1 {
             return front;
         }
 
-
-        // peek
-        public int peek(){
-            if(isEmpty()){
-                System.out.println("Queue is empty!!");
+        public int peek() {
+            if (isEmpty() ) {
+                 System.out.println("Queue is empty!!");
                 return -1;
             }
             return head.data;
@@ -65,15 +64,7 @@ public class Question_1 {
         q.add(2);
         q.add(3);
 
-
-        System.out.println("Removed front is : " + q.remove());
-        q.add(4);
-        System.out.println("Removed front is : " + q.remove());
-        q.add(5);
-
-        while(!q.isEmpty()){
             System.out.println(q.peek());
             q.remove();
         }
     }
-}
