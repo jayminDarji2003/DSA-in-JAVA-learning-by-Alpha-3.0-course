@@ -1,12 +1,9 @@
-
 /*
     Q.1 :- Activity section
 */
 import java.util.*;
 
 public class Question_1 {
-
-
     // activity section fnx
     // when end is sorted
     public static void activitySec(int start[], int end[]) {
