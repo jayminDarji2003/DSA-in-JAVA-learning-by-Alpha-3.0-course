@@ -1,12 +1,14 @@
-
 /*
-    Building a Preorder tree
-    Time Complexity = O(n)
+    Preorder traversal
+
+    rule :-
+        1. root
+        2. left subtree
+        3. right subtree
+
 */
 
-class BuildTree {
-    // creating Node class
-    // Node class is used to create NODE
+class PreOrderTraversal {
     static class Node {
         int data;
         Node left;
@@ -18,26 +20,32 @@ class BuildTree {
             this.right = null;
         }
     }
-
-    // creating BinaryTree class
-    //Binary tree is used to joing or create tree
     static class BinaryTree{
         static int idx = -1;
+
+        //build tree fnx
         public Node buildTree(int nodes[]){    
             idx++;
             if(nodes[idx] == -1){
                 return null;
             }
-            //create new node
             Node newNode = new Node(nodes[idx]);
-
-            //create left subtree
             newNode.left = buildTree(nodes);
-
-            //create right subtree
             newNode.right = buildTree(nodes);
-
             return newNode;
+        }
+
+        // preorder traversal fnx
+        public void preorder(Node root){   //O(n)
+            // base case
+            if(root == null){
+                return;
+            }
+
+            System.out.print(root.data + " ");  // print root data
+            preorder(root.left);    // print left subtree
+            preorder(root.right);   // print right subtree
+            
         }
     }
 
@@ -45,6 +53,6 @@ class BuildTree {
         int nodes[] = { 1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1 };
         BinaryTree tree = new BinaryTree();
         Node root = tree.buildTree(nodes);
-        System.out.println("root node is " + root.data);
+        tree.preorder(root);
     }
 }
