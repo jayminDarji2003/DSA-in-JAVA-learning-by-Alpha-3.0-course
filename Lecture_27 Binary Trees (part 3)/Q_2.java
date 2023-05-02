@@ -1,5 +1,5 @@
 /*
-Q.1 :- Find Lowest Common Ascestor
+    Q.1 :- Find Lowest Common Ascestor
 */
 
 import java.util.ArrayList;

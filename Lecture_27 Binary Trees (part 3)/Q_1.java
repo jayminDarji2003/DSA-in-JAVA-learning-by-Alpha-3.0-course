@@ -1,6 +1,10 @@
 /*
     Q.1 :- kth Level of a tree.
         -> Print all the node which is comes in Kth Level
+
+    There are two approach to solve this question
+        1. Iterative approach --> using level order traversal
+        2. Recursive approach --> using recursion
 */
 
 class Q_1{
@@ -16,18 +20,21 @@ class Q_1{
         }
     }
 
+    // Approach 1 --> Recursive method
     public static void KLevel(Node root, int level, int k){
         //base case
         if(root == null){
             return;
         }
 
+        // check level and k is same or not
         if(level == k){
             System.out.print(root.data + " ");
             return;
         }
-
+        // call for left subtree
         KLevel(root.left, level+1, k);
+        // call for right subtree
         KLevel(root.right, level+1, k);
     }
 
