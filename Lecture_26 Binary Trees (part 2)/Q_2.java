@@ -1,6 +1,6 @@
 /*
     Q.2 :- Subtree of another tree
-        -> check "Tree" are identical with "Subtree".
+        -> check "Tree" are identical with "Subtree" or Not.
 */
 class Q_2{
     static class Node{

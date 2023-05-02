@@ -1,7 +1,7 @@
 /*
     Q.1 :- Diameter of a tree
-        Approach 1 ==> O(n^2)
-        Approach 2 ==> O(n)
+            Approach 1 ==> O(n^2)
+            Approach 2 ==> O(n)
 */
 class Q_1{
     static class Node{

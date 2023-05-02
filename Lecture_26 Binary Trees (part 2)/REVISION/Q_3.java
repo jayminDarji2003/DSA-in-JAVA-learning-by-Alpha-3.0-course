@@ -1,16 +1,16 @@
-/*
-    Q.3 :- Top view of a Binary Tree.
-    --> when we see from top then how many nodes we can see it's called top view of a binary tree and print nodes.
-*/
-import java.util.*;
+package REVISION;
 
-public class Q_3{
+import java.time.chrono.IsoEra;
+import java.util.*;;
+
+public class Q_3 {
+    // create Node
     static class Node{
         int data;
         Node left;
         Node right;
 
-        Node(int data){
+        public Node(int data){
             this.data = data;
             this.left = null;
             this.right = null;
@@ -21,63 +21,67 @@ public class Q_3{
         Node node;
         int hd;
 
-        Info(Node node, int hd){
+        public Info(Node node, int hd){
             this.node = node;
             this.hd = hd;
         }
     }
 
-        // this fnx print Nodes which is see from top
+
+    // create fnx to print --> top view nodes
     public static void topView(Node root){
-        // Level order
+        // create below things
         Queue<Info> q = new LinkedList<>();
         HashMap<Integer,Node> map = new HashMap<>();
+        int min = 0, max = 0;
+        
+        // level order
 
-        int min = 0;
-        int max = 0;
-
-        q.add(new Info(root,0));
+        q.add(new Info(root, 0));   // adding --> Node = root and hd = 0;
         q.add(null);
-
+        
         while(!q.isEmpty()){
-            Info curr = q.remove();
-
+            Info curr =  q.remove();  // remove current Info
+            
+            // check for --> null
             if(curr == null){
-                System.out.println();
                 if(q.isEmpty()){
                     break;
                 }else{
-                    q.add(curr);
+                    q.add(null);
                 }
             }
-            else {
-                if(!map.containsKey(curr.hd)){ // first time my hd is occuring
+            else{
+                // check for --> normal node
+                if(!map.containsKey(curr.hd)){  // "agar key not exists then do"
+                    // map.containsKey(curr.hd)
+                    // return boolean value; 
+                    // true = key exist ; false = key not exist.
+                    // first time hd is occurring
                     map.put(curr.hd, curr.node);
                 }
-    
+            
                 if(curr.node.left != null){
-                    q.add(new Info(curr.node.left, curr.hd-1));
+                    q.add(new Info(curr.node.left, curr.hd - 1));
                     min = Math.min(min, curr.hd-1);
                 }
+            
                 if(curr.node.right != null){
-                    q.add(new Info(curr.node.right, curr.hd+1));
-                    max = Math.max(max, curr.hd+1);
+                    q.add(new Info(curr.node.right, curr.hd + 1 ));
+                    max = Math.max(max , curr.hd + 1);
                 }
             }
-
-            
         }
-
-        // print
-        for(int i = min; i <= max; i++){
-            System.out.print(map.get(i).data + " ");
+        // print top view nodes
+        for(int i = min; i < max ; i++){
+            System.out.print(map.get(i).data + " "); // return node and print data of node
         }
-        System.out.println();
 
 
     }
+
     public static void main(String[] args) {
-        /*
+           /*
                     1
                    / \
                   2   3
@@ -94,6 +98,5 @@ public class Q_3{
         root.right.right = new Node(7);
 
         topView(root);
-
     }
 }
