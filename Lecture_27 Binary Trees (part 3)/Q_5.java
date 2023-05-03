@@ -1,3 +1,8 @@
+/*
+    Q.5 :- Find Kth Ancestor in a binary tree.
+*/
+
+
 public class Q_5 {
     // create node
     static class Node {
@@ -35,7 +40,7 @@ public class Q_5 {
             return -1;
         }
 
-        int max = Math.max(leftDist, rightDist);
+        int max = Math.max(leftDist, rightDist);   
         //print if node exits in subtree
         if(max+1 == k){
             System.out.println("Ancestor is : " + root.data);
