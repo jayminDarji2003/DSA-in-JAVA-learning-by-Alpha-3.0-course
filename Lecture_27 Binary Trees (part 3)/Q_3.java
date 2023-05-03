@@ -1,9 +1,7 @@
 /*
     Q.3 :- Find Lowest Common Ascestor
-    Approach 2
+        here we solve Approach 2
 */
-
-import java.util.ArrayList;
 
 class Q_3{
     static class Node{

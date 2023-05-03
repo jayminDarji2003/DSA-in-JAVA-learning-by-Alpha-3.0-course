@@ -1,5 +1,6 @@
 /*
-    Q.1 :- Find Lowest Common Ascestor
+    Q.2 :- Find Lowest Common Ascestor
+        here we solve Approach 1
 */
 
 import java.util.ArrayList;
@@ -62,7 +63,7 @@ class Q_2{
         /*
                     1
                    / \
-                  2   3
+                  2   3  
                  / \ / \
                 4  5 6  7          
         */
