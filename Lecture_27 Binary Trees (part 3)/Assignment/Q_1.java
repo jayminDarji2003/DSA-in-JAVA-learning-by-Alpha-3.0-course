@@ -1,11 +1,11 @@
 /*
      Q_1 :- check if a binary tree is univalued or not
-        Time Complexity O(n)
-        Space Complexity O(1)
- */
 
-import java.lang.invoke.LambdaMetafactory;
-import java.rmi.dgc.Lease;
+        Univalued Meaning :- all the data of the node are same.
+
+            Time Complexity O(n)
+            Space Complexity O(1)
+ */
 
 public class Q_1 {
     // create Node
@@ -42,13 +42,13 @@ public class Q_1 {
 
     public static void main(String[] args) {
         /*
-            out tree will be
+            Tree
             
                         1
                        / \
-                      2   3
+                      1   1
                      / \  / \ 
-                    4   5 6  7
+                    1   1 1  1
         */
 
         Node root = new Node(1);
