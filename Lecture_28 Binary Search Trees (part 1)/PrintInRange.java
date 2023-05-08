@@ -2,8 +2,6 @@
     Q :- Print node which is comes in a perticular range.
 */
 
-import javax.swing.text.DefaultEditorKit.InsertBreakAction;
-
 public class PrintInRange {
     // Node class
     static class Node {
