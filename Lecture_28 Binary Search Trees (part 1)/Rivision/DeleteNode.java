@@ -1,32 +1,12 @@
 /*
-    Delete node in BST
-
-    when we want to delete node in BST, we follow three cases
-        case 1 :- delete : child node (leaf node)
-        case 2 :- delete : one child
-        case 3 :- delete : two child
-
-    explain
-        case 1 :-
-            leaf node = null --> this node will be delete
-        
-        case 2 :-
-            root.left = root.left.left
-                or
-            root.right = root.right.right
-
-        case 3 :-
-            find Inorder Successor (IS)
-                IS :- Left most node  in right subtree (min value in right subtree)
-            key = IS  --> key means the node we want to delete
-            IS delete
-
+    Delete node
 */
 
+package Rivision;
 
-public class DeleteInBST {
-    // create Node structure
-    static class Node {
+public class DeleteNode {
+     // create Node structure
+     static class Node {
         int data;
         Node left;
         Node right;
@@ -66,23 +46,21 @@ public class DeleteInBST {
     }
 
 
-    // delete fnx
-    public static Node delete(Node root,int val){
+    // Delete Node fnx
+    public static Node delete(Node root, int val){
         if(root.data < val){
             root.right = delete(root.right, val);
         }
         else if(root.data > val){
             root.left = delete(root.left, val);
         }
-        else{
-            // voila  --> we found our node
-
-            // case 1 --> leaf node
+        else{ // voila  --> where we found our node
+            // case 1 -> leaf node
             if(root.left == null && root.right == null){
                 return null;
             }
 
-            // case 2 --> one(single) child
+            // case 2 -> single child
             if(root.left == null){
                 return root.right;
             }
@@ -90,8 +68,7 @@ public class DeleteInBST {
                 return root.left;
             }
 
-
-            // case 3 --> both(two chlid) child
+            // case 3 -> two children
             Node IS = findInorderSuccessor(root.right);
             root.data = IS.data;
             root.right = delete(root.right, IS.data);
@@ -100,7 +77,7 @@ public class DeleteInBST {
         return root;
     }
 
-    // find inorder successor 
+    // Inorder successor fnx
     public static Node findInorderSuccessor(Node root){
         while(root.left != null){
             root = root.left;
@@ -109,9 +86,8 @@ public class DeleteInBST {
     }
 
 
-
     public static void main(String[] args) {
-        /*
+          /*
             Tree will be:-
 
                     8
@@ -136,10 +112,12 @@ public class DeleteInBST {
         System.out.println("The tree node are : ");
         inorder(root);
         System.out.println();
+        
+        root = delete(root, 5);
 
-        root = delete(root, 1);
-        System.out.println();
-
+        // print tree
+        System.out.println("The tree node are : ");
         inorder(root);
+        System.out.println();
     }
 }
