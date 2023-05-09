@@ -105,5 +105,7 @@ public class LargestBSTInBt {
 
         Info info = largestBST(root);
         System.out.println("largest BST size : " + maxBST);
+
+        System.out.println("Also Tree is BST : " + info.isBST);
     }
 }
