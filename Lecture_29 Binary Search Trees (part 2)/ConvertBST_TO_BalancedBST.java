@@ -30,6 +30,7 @@ public class ConvertBST_TO_BalancedBST {
         inorder(root.right, arr);
     }
 
+    // Approach 1
     // build Balanced BST fnx
     public static Node buildBST(ArrayList<Integer> arr,int st, int end){
         // base case
@@ -60,6 +61,46 @@ public class ConvertBST_TO_BalancedBST {
     }
 
 
+
+    // Approach 2
+
+    public static void getInorder(Node root,ArrayList<Integer> inorder){
+        // base case
+        if(root == null){
+            return;
+        }
+
+        getInorder(root.left, inorder);
+        inorder.add(root.data);
+        getInorder(root.right, inorder);
+    }
+
+    public static Node createBST(ArrayList<Integer> inorder, int st, int end){
+        // base case
+        if(st > end){
+            return null;
+        }
+
+        int mid = (st + end) / 2;
+        Node root = new Node(inorder.get(mid));
+
+        root.left = createBST(inorder, st, mid-1);
+        root.right = createBST(inorder, mid+1, end);
+
+        return root;
+    }
+    public static Node balancedBST(Node root){
+        // step1 inorder sequence
+        ArrayList<Integer> inorder = new ArrayList<>();
+        getInorder(root, inorder);  
+
+        // step2 inorder -> balanced BST
+        root = createBST(inorder, 0, inorder.size()-1);
+
+        return root;
+    }
+
+
     public static void main(String[] args) {
         /*
             tree will be
@@ -83,16 +124,20 @@ public class ConvertBST_TO_BalancedBST {
         root.left.left.left = new Node(3);
         root.right.right.right = new Node(12);
 
-        ArrayList<Integer> arr = new ArrayList<>();
+        // ArrayList<Integer> arr = new ArrayList<>();
 
-        inorder(root,arr);
+        // inorder(root,arr);
 
-        for(int i=0; i<arr.size(); i++){
-            System.out.print(arr.get(i) + " ");
-        }
+        // for(int i=0; i<arr.size(); i++){
+        //     System.out.print(arr.get(i) + " ");
+        // }
 
-        Node root2 = buildBST(arr, 0, arr.size()-1);
-        System.out.println("\nbalanced tree");
-        inorder(root2);
+        // Node root2 = buildBST(arr, 0, arr.size()-1);
+        // System.out.println("\nbalanced tree");
+        // inorder(root2);
+
+        // Approach 2
+        root = balancedBST(root);
+        inorder(root);
     }
 }
