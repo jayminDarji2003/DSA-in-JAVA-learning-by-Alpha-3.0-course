@@ -11,7 +11,7 @@
 // import java.util.Comparator;  // used when we use comparator interface
 import java.util.PriorityQueue; // importing priority queue class
 
-public class priorityQueueImplement {
+public class Imple_PQ {
     public static void main(String[] args) {
         // by default, In Priority Queue -> remove element ascending order
         PriorityQueue<Integer> pq = new PriorityQueue<>();
