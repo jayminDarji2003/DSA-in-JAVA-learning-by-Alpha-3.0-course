@@ -1,5 +1,6 @@
 /*
     Implement Priority Queue using JCF. 
+        JCF = Java Collection Framwork.
 
     There are three function in Priority Queue.
         1. add() --> O(log n)
@@ -12,7 +13,7 @@ import java.util.PriorityQueue; // importing priority queue class
 
 public class priorityQueueImplement {
     public static void main(String[] args) {
-        // by default pq declare -> remove ascending order
+        // by default, In Priority Queue -> remove element ascending order
         PriorityQueue<Integer> pq = new PriorityQueue<>();
 
         // to remove discending order then we have to pass parameter as follows.
