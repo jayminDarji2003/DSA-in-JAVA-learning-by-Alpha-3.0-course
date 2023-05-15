@@ -6,7 +6,7 @@
         2. Remove last Node.  --> arr.remove(arr.size()-1)
         3. Fix Heap --> call --> Heapify fnx
 
-    -> Heapity fnx   TC = O(logn)
+    -> Heapify fnx   TC = O(logn)
         root = i
         left = 2i+1
         right = 2i+2

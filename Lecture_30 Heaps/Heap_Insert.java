@@ -1,12 +1,12 @@
 /*
     Heap :-
         There are two types of Heap.
-            1. Min Heap  --> value of child is high then parent (child > parent)
-            2. Max Heap  --> value of parent is high then child (parent > child)
+            1. Min Heap  --> value of child is higher then parent (child > parent)
+            2. Max Heap  --> value of parent is higher then child (parent > child)
         
     Formula we must know
         1. when we have child node index and we want to find parent node index then use :-
-            formula = (x - 1) / 2  , x=child index
+            formula = (x - 1) / 2  , x = child index
 
         2. When we have parent node index and we want to find child node index then use :-
             left child = 2x + 1   , x = index of parent node.
