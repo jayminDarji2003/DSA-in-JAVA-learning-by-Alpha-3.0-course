@@ -1,22 +1,11 @@
+package revision;
 /*
     Remove in Heap
-
-    -> Remove in heap is a three step process.
-        1. Swap 1st and last Node.
-        2. Remove last Node.  --> arr.remove(arr.size()-1)
-        3. Fix Heap --> call --> Heapify fnx
-
-    -> Heapity fnx   TC = O(logn)
-        root = i
-        left = 2i+1
-        right = 2i+2
-        min = (i,2i+1,2i+2)
-        min swap with root --> swap(min,root)
 */
 
 import java.util.ArrayList;
 
-public class Heap_Remove {
+public class RemoveInHeap {
     // Heap class
     static class Heap{
         ArrayList<Integer> arr = new ArrayList<>();

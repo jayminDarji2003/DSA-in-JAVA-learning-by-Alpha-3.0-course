@@ -1,34 +1,22 @@
 /*
-    Remove in Heap
-
-    -> Remove in heap is a three step process.
-        1. Swap 1st and last Node.
-        2. Remove last Node.  --> arr.remove(arr.size()-1)
-        3. Fix Heap --> call --> Heapify fnx
-
-    -> Heapity fnx   TC = O(logn)
-        root = i
-        left = 2i+1
-        right = 2i+2
-        min = (i,2i+1,2i+2)
-        min swap with root --> swap(min,root)
+    Max Heap example :-
 */
 
 import java.util.ArrayList;
 
-public class Heap_Remove {
+public class Max_Heap_example {
     // Heap class
     static class Heap{
         ArrayList<Integer> arr = new ArrayList<>();
 
-        // add fnx
+        // add Heap
         public void add(int data){
             arr.add(data);
 
             int x = arr.size()-1;
             int par = (x-1) / 2;
 
-            while(arr.get(x) < arr.get(par)){
+            while(arr.get(x) > arr.get(par)){
                 int temp = arr.get(x);
                 arr.set(x, arr.get(par));
                 arr.set(par, temp);
@@ -38,36 +26,35 @@ public class Heap_Remove {
             }
         }
 
-        // peek fnx
+        // peek Heap
         public int peek(){
             return arr.get(0);
         }
-        
-        // heapify fnx
+        // heapify (healper fnx for remove)
         private void heapify(int i){
             int left = i*2+1;
             int right = i*2+2;
-            int minIdx = i;
+            int maxIdx = i;
 
-            if(left < arr.size() && arr.get(minIdx) > arr.get(left)){
-                minIdx = left;
+            if(left < arr.size() && arr.get(maxIdx) < arr.get(left)){
+                maxIdx = left;
             }
 
-            if(right < arr.size() && arr.get(minIdx) > arr.get(right)){
-                minIdx = right;
+            if(right < arr.size() && arr.get(maxIdx) < arr.get(right)){
+                maxIdx = right;
             }
 
-            if(minIdx != i){
+            if(maxIdx != i){
                 // swap
                 int temp = arr.get(i);
-                arr.set(i,arr.get(minIdx));
-                arr.set(minIdx,temp);
+                arr.set(i,arr.get(maxIdx));
+                arr.set(maxIdx,temp);
 
-                heapify(minIdx);  // recursive call
+                heapify(maxIdx);  // recursive call
             }
         }
 
-        // Re Write fnx
+        // remove heap
         public int remove(){
             int data = arr.get(0);  // get root
 
@@ -85,7 +72,7 @@ public class Heap_Remove {
             return data;
         }
 
-        // is empty fnx
+        // isEmpty fnx
         public boolean isEmpty(){
             return arr.size() == 0;
         }
