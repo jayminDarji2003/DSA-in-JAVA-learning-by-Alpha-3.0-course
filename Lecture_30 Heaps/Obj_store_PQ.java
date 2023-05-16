@@ -4,7 +4,7 @@
 */
 import java.util.*;
 
-public class Store_Obj_PQ {
+public class Obj_store_PQ {
     // define class 
     static class Student implements Comparable<Student>{
         String name;
