@@ -1,7 +1,7 @@
 import java.util.Set;
 import java.util.HashMap;
 
-public class MIX {
+public class MIX1 {
     public static void main(String[] args) {
         /*
             HashMap :-
