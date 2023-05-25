@@ -4,9 +4,7 @@
             A. Using Iterators  --> here we are use Iterator interface
             B. Using for loop
 */
-import java.security.DrbgParameters.Capability;
-import java.util.HashSet;
-import java.util.Iterator;
+import java.util.*;
 
 public class Iteration_HashSet {
     public static void main(String[] args) {
