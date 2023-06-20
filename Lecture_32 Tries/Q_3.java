@@ -24,6 +24,7 @@ public class Q_3 {
             }
         }
     }
+    
 
     public static Node root = new Node();
 
