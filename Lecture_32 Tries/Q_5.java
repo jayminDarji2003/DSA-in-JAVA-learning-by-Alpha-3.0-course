@@ -18,7 +18,7 @@ public class Q_5 {
 
     static Node root = new Node();
 
-    // insert fnx
+    // insert fnxl
     public static void insert(String word){
         Node curr = root;
 
