@@ -1,4 +1,10 @@
 // Q.4 :- Count Unique SubStrings
+/*
+    Three steps to solve this Question
+        s1 :- Find all SUFFIX of String         
+        s2 :- Create Trie from SUFFIX ---> (insert)
+        s3 :- Count nodes of Trie
+*/
 
 public class Q_4 {
     static class Node {
@@ -44,14 +50,15 @@ public class Q_4 {
         return count+1;
     }
 
+
     public static void main(String[] args) {
-        String str = "ababa"; // ans = 10
+        String str = "apple"; // ans = 10
 
         // step 1 :- cal suffix and then insert in Trie
         for (int i = 0; i < str.length(); i++) {
             String suf = str.substring(i);
             insert(suf);
-        }
+        } 
 
         System.out.println(countNodes(root));
     }
