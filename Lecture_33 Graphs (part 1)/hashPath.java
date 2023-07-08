@@ -1,18 +1,12 @@
 /*
-    DFS (Depth First Search)
-
-    Logic :-
-        step1: visit curr
-                visit[curr] = true
-                print(curr)
-        
-        step2 : visit your neighbour
-
+    Q:- HashPath
+        if path exits return true otherwise return false.
 */
-import java.util.*;
 
-public class DFS {
-    static class Edge{
+import java.util.ArrayList;
+
+public class hashPath {
+      static class Edge{
         int src;
         int dest;
         int wt;
@@ -54,21 +48,30 @@ public class DFS {
     }
 
 
-    // dfs function
-    public static void dfs(ArrayList<Edge> graph[], int curr, boolean visit[]){  // TC(V+E)
-        System.out.print(curr + " ");
-        visit[curr] = true;
-
-        for(int i=0; i<graph[curr].size(); i++){
-            Edge e = graph[curr].get(i);
-            if(!visit[e.dest]){
-                dfs(graph, e.dest, visit);
-            }
+    // hashPath fnx  // TC(V+E)
+    public static boolean hashPath(ArrayList<Edge>[] graph, int src, int dest, boolean visit[]){
+        // case 1
+        if(src == dest){
+            return true;
         }
+
+        visit[src] = true;
+
+        // case 2
+        for(int i=0; i<graph[src].size(); i++){
+            Edge e = graph[src].get(i);
+            // e.dest ==> our neighbour
+            if(!visit[e.dest] && hashPath(graph, e.dest, dest, visit)){
+                return true;
+            }
+        }   
+
+        return false;
+
     }
 
 
-    public static void main(String[] args) {
+     public static void main(String[] args) {
         /*
             Graph:-
                 
@@ -82,10 +85,13 @@ public class DFS {
 
         int V = 7;
         ArrayList<Edge> graph[] = new ArrayList[V];
-
         createGraph(graph);
 
-        dfs(graph, 0, new boolean[V]);
+        int src = 0;
+        int dest = 5;
+        
+        boolean ans = hashPath(graph, src, dest, new boolean[V]);
+        System.out.println(ans);
     }
 
 }
