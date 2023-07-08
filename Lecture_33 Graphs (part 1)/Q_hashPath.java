@@ -1,12 +1,27 @@
 /*
-    Q:- HashPath
-        if path exits return true otherwise return false.
+    Q. hashPath
+        -> If path exist return true else return false.
+
+    Approach :-
+        recursive fnx
+
+        step 1
+            if(src == dest)
+                return true
+
+        step 2 
+            visit[src] = true
+        
+        step 3 
+            unvisited neighbout call
+            if(!visit[neigh] && hashpath(src,dest))
+                    return true
 */
 
-import java.util.ArrayList;
+import java.util.*;
 
-public class hashPath {
-      static class Edge{
+public class Q_hashPath {
+    static class Edge{
         int src;
         int dest;
         int wt;
@@ -48,8 +63,9 @@ public class hashPath {
     }
 
 
-    // hashPath fnx  // TC(V+E)
-    public static boolean hashPath(ArrayList<Edge>[] graph, int src, int dest, boolean visit[]){
+    //   HashPath fnx
+    // Time complexity : 0(V+E)
+    public static boolean hashPath(ArrayList<Edge> graph[], int src, int dest, boolean visit[]){
         // case 1
         if(src == dest){
             return true;
@@ -60,18 +76,17 @@ public class hashPath {
         // case 2
         for(int i=0; i<graph[src].size(); i++){
             Edge e = graph[src].get(i);
-            // e.dest ==> our neighbour
-            if(!visit[e.dest] && hashPath(graph, e.dest, dest, visit)){
+            if(!visit[e.dest] && hashPath(graph,e.dest, dest, visit)){
                 return true;
             }
-        }   
+        }
 
+        // if path not exist
         return false;
-
     }
 
 
-     public static void main(String[] args) {
+    public static void main(String[] args) {
         /*
             Graph:-
                 
@@ -84,14 +99,10 @@ public class hashPath {
 
 
         int V = 7;
-        ArrayList<Edge> graph[] = new ArrayList[V];
-        createGraph(graph);
+        ArrayList<Edge>[] graph = new ArrayList[V];
 
-        int src = 0;
-        int dest = 5;
-        
-        boolean ans = hashPath(graph, src, dest, new boolean[V]);
-        System.out.println(ans);
+        createGraph(graph);
+        System.out.println(hashPath(graph,0,5,new boolean[V]));
     }
 
 }
