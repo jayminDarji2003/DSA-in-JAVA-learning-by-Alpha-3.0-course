@@ -1,19 +1,11 @@
 /*
-    DFS (Depth First Search)
-    
-    Logic :-
-        step1: visit curr
-                visit[curr] = true
-                print(curr)
-        
-        step2 : visit your neighbour
-
+    hasPath : check if the path exist or not
 */
 
-package revision;
+package revision.revision_session1;
 import java.util.*;
 
-public class DFS {
+public class hashPath {
     static class Edge{
         int src;
         int dest;
@@ -56,32 +48,27 @@ public class DFS {
     }
 
 
-    // dfs function
-    // public static void dfs(ArrayList<Edge> graph[], int curr, boolean visit[]){  // TC(V+E)
-    //     System.out.print(curr + " ");
-    //     visit[curr] = true;
+   // hashpath
+   public static boolean hashpath(ArrayList<Edge>[] graph,int src, int dest, boolean visit[]){
+        
+        // case 1
+        if(src == dest){
+            return true;
+        }
 
-    //     for(int i=0; i<graph[curr].size(); i++){
-    //         Edge e = graph[curr].get(i);
-    //         if(!visit[e.dest]){
-    //             dfs(graph, e.dest, visit);
-    //         }
-    //     }
-    // }
+        // step 1
+        visit[src] = true;
 
-
-    // Depth First Search funcation
-    public static void dfs(ArrayList<Edge>[] graph,int curr , boolean visit[]){
-        System.out.print(curr + " ");
-        visit[curr] = true;
-
-        for(int i=0; i<graph[curr].size(); i++){
-            Edge e = graph[curr].get(i);
-            if(!visit[e.dest]){
-                dfs(graph,e.dest,visit);
+        // step 2
+        for(int i=0; i<graph[src].size(); i++){
+            Edge e = graph[src].get(i);
+            if(!visit[e.dest] && hashpath(graph, e.dest, dest, visit)){
+                return true;
             }
         }
-    }
+
+        return false;
+   }
 
 
     public static void main(String[] args) {
@@ -101,7 +88,8 @@ public class DFS {
 
         createGraph(graph);
 
-        dfs(graph, 0, new boolean[V]);
+        boolean ans = hashpath(graph, 1, 5, new boolean[V]);
+        System.out.println(ans);
     }
 
 }
