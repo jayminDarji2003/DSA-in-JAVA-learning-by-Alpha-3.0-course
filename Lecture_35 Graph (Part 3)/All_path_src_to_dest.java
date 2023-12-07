@@ -52,6 +52,7 @@ public class All_path_src_to_dest {
 
     public static void main(String[] args) {
         int V = 6;
+        @SuppressWarnings("unchecked")
         ArrayList<Edge>[] graph = new ArrayList[V];
         createGraph(graph);
 

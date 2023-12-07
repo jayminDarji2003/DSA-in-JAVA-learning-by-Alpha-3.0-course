@@ -1,6 +1,5 @@
 /*
-    Dijkstra's algorithm :- 
-        Shortest path from source to all vertices.
+    Dijkstra's algorithm :- find shortest path from source to all destinations.
 */
 
 import java.util.*;
@@ -46,7 +45,7 @@ public class Dijkstra_algo {
         }
 
         @Override
-        public int compateTo(Pair p2) {
+        public int compareTo(Pair p2) {
             return this.path - p2.path; // path based sorting for my pairs.
         }
     }
@@ -76,7 +75,7 @@ public class Dijkstra_algo {
                     int wt = e.wt;
 
                     if (dist[u] + wt < dist[v]) { // update distance src to dest
-                        dist[v] = dist[v] + wt;
+                        dist[v] = dist[u] + wt; // Fix: use dist[u] instead of dist[v]
                         pq.add(new Pair(v, dist[v]));
                     }
                 }
@@ -91,7 +90,7 @@ public class Dijkstra_algo {
 
     public static void main(String[] args) {
         int V = 6;
-        ArrayList<Edge> graph[] = new ArrayList[V];
+        ArrayList<Edge>[] graph = new ArrayList[V];
         createGraph(graph);
         int src = 0;
 
