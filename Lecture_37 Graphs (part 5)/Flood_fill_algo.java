@@ -36,7 +36,7 @@ public class Flood_fill_algo {
     }
 
     // print image
-    public static void printImage(int[][] image){
+    public static void printImage(int[][] image) {
         for (int i = 0; i < image.length; i++) {
             for (int j = 0; j < image[0].length; j++) {
                 System.out.print(image[i][j] + " ");
@@ -55,12 +55,11 @@ public class Flood_fill_algo {
         int sr = 1;
         int sc = 1;
         int color = 2;
-        
+
         System.out.println("--------------- Original image ------------- ");
         printImage(image);
-        
-        int ans[][] = floodFill(image, sr, sc, color);
 
+        int ans[][] = floodFill(image, sr, sc, color);
 
         System.out.println("--------------- new image ------------- ");
         printImage(ans);
