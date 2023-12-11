@@ -7,7 +7,7 @@
                 ii. Tabulation way
 */
 
-public class fibb {
+public class fibonacci {
     // calculating fibonacci using recursion approach
     public static int recursionWay(int n) {
         // base case
