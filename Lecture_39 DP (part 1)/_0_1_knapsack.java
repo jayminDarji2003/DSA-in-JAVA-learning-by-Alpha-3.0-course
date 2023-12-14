@@ -51,6 +51,55 @@ public class _0_1_knapsack {
         }
     }
 
+    // helper function // print dp
+    public static void printDP(int dp[][]) {
+        System.out.println("---------- Printing DP (Tabulation way) \n");
+
+        for (int i = 0; i < dp.length; i++) {
+            for (int j = 0; j < dp[0].length; j++) {
+                System.out.print(dp[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    // Knapsack - Tabulation way
+    public static int knapsack_tab(int val[], int wt[], int w) {
+        int n = val.length;
+        // step 1 : CREATE TABLE
+        int dp[][] = new int[n + 1][w + 1];
+
+        // step 2 : INITIALIZE TABLE (BASE CASES)
+        for (int i = 0; i < dp.length; i++) { // 0th column
+            dp[i][0] = 0;
+        }
+        for (int j = 0; j < dp[0].length; j++) { // 0th row
+            dp[0][j] = 0;
+        }
+
+        // step 3 : FILLING DATA TO THE TABLE
+        for (int i = 1; i < n + 1; i++) {
+            for (int j = 1; j < w + 1; j++) {
+                int value = val[i - 1]; // ith item value
+                int weight = wt[i - 1]; // ith item weight
+
+                if (weight <= j) { // valid condition
+                    int incProfit = value + dp[i - 1][j - weight];
+                    int excProfit = dp[i - 1][j];
+                    dp[i][j] = Math.max(incProfit, excProfit);
+                } else { // invalid condition
+                    int excProfit = dp[i - 1][j];
+                    dp[i][j] = excProfit;
+                }
+            }
+        }
+
+        printDP(dp);
+
+        return dp[n][w];
+    }
+
     public static void main(String[] args) {
         int val[] = { 15, 14, 10, 45, 30 };
         int wt[] = { 2, 5, 1, 3, 4 };
@@ -69,5 +118,7 @@ public class _0_1_knapsack {
         }
 
         System.out.println("Memoization way result = " + knapsack_memo(val, wt, w, val.length, dp));
+
+        System.out.println("Tabulation way result = " + knapsack_tab(val, wt, w));
     }
 }
