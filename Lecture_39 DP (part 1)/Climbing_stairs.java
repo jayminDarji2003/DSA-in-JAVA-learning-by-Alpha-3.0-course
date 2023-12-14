@@ -16,8 +16,6 @@
             combine both ways --> n ways
 */
 
-import java.util.Arrays;
-
 public class Climbing_stairs {
 
     // Recursive approach
